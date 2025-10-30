@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I LOVE YOU HÀ LINH 💕</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 20%;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    p {
+      font-size: 1.5em;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out 3s forwards;
+    }
+
+    button {
+      background-color: #ff4b5c;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out 6s forwards;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff6f91;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: floatUp 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: 10px; top: 0; }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      to { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>I LOVE YOU HÀ LINH 💕</h1>
+  <p>Em là cả thế giới của anh 💖</p>
+  <button onclick="showLove()">Bấm vào đây để nhận lời tỏ tình 💌</button>
+
+  <audio autoplay loop>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showLove() {
+      alert("Anh yêu em thật lòng, Hà Linh à 💞");
+    }
+
+    // Tạo tim bay
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 200);
+  </script>
+</body>
+</html>
